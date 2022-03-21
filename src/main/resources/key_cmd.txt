@@ -1,0 +1,13 @@
+http://itech-notes.blogspot.com/2013/02/keytool.html
+
+Генерация JKS хранилища
+keytool -genkey -alias parent -keyalg RSA -validity 365 -keystore store.jks
+
+Просмотр хранилища
+keytool -v -list -keystore store.jks -storepass mystorepass
+
+
+- импорт нового CA в стандартное хранилище доверенных сертификатов (это корневой сертификат!) не простой                                                                                                       
+keytool -import -trustcacerts -file C:\AppSever\Projects\restlientssl\src\main\resources\AlexanderSertification.cer -alias CA_ALIAS -keystore C:\AppSever\Projects\restlientssl\src\main\resources\keystore.jks 
+
+keytool.exe -trustcacerts -keystore store.jks -storepass changeit -alias mysec -import -file AlexanderSertification.cer
